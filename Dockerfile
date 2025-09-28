@@ -1,7 +1,6 @@
-# syntax=docker/dockerfile:1.7
 
 # ベースイメージ: Node.js公式の軽量版を採用し、サイズとセキュリティのバランスを取る
-FROM node:20-slim AS base
+FROM node:18-slim AS base
 
 # 日本語コメント: 依存パッケージをビルドするために必要なビルドツールをまとめて導入
 RUN apt-get update \
@@ -52,7 +51,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # ランタイム用ステージ。実行に必要な最小限のファイルをコピー
-FROM node:20-slim AS runner
+FROM node:18-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

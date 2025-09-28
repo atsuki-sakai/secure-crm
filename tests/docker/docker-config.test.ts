@@ -19,9 +19,9 @@ describe("Docker configuration", () => {
     composeContent = await readProjectFile("docker-compose.yml");
   });
 
-  it("includes a multi-stage build using the Node 20 slim image", () => {
-    expect(dockerfileContent).toContain("FROM node:20-slim AS base");
-    expect(dockerfileContent).toContain("FROM node:20-slim AS runner");
+  it("includes a multi-stage build using the Node 18 slim image", () => {
+    expect(dockerfileContent).toContain("FROM node:18-slim AS base");
+    expect(dockerfileContent).toContain("FROM node:18-slim AS runner");
     expect(dockerfileContent).toContain("npm ci");
     expect(dockerfileContent).toContain("npm run build");
     expect(dockerfileContent).toContain("@tailwindcss/oxide");

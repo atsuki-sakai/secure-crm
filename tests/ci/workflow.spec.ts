@@ -25,7 +25,7 @@ describe('GitHub Actions CI workflow', () => {
       '  pull_request:',
       'runs-on: ubuntu-latest',
       'uses: actions/setup-node@v4',
-      'node-version: 20',
+      'node-version: 18',
       'run: npm ci',
       'run: npm run test'
     ];

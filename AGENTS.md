@@ -10,6 +10,7 @@
 - キャッシュ/再検証はfetchのoptions(revalidate, cache)かRoute Segment Configを明示。
 - エラーはアプリ例外型で握り、HTTP層でマッピング。例: DomainError→400/409、InfraError→502。
 - Lint/Format: eslint@typescript-eslint, biome or prettier。strictNullChecks, noImplicitAny有効。
+- commitメッセージやコメントなどは全て日本語で記述してください。
 
 ## TDD手順（出力フォーマットを固定）
 1. **Red-Green-Refactor計画**: ユースケースと最小受け入れ基準(AC)を箇条書き。

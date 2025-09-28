@@ -30,6 +30,29 @@ npm run start
 npm run lint
 ```
 
+## Docker Commands
+
+### Production Environment
+```bash
+# Build and start production container
+docker-compose up --build
+
+# Start in detached mode
+docker-compose up -d
+
+# Stop containers
+docker-compose down
+```
+
+### Individual Container Commands
+```bash
+# Build production image
+docker build -t secure-crm .
+
+# Run production container
+docker run -p 3000:3000 secure-crm
+```
+
 ## Architecture
 
 ### Directory Structure

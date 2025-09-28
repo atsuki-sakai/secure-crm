@@ -1,5 +1,15 @@
+import type { ReactNode } from "react";
 
+export type DashboardLayoutProps = {
+  children: ReactNode;
+};
 
-export const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-    return <div className="flex flex-col min-h-screen"><main>{children}</main></div>;  
-}
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <main>{children}</main>
+    </div>
+  );
+};
+
+export default DashboardLayout;

@@ -21,6 +21,7 @@ WHY/WHAT/TEST/IMPACT: 簡潔に整形し読みやすく（各2〜4行/箇条書�
 - ステージ差分が無ければ中断。
 - 上記推定でメッセージ本文を生成し、.git/COMMIT_EDITMSG_AI に保存。
 - `git commit -F .git/COMMIT_EDITMSG_AI`
+- Generated with [Claude Code](https://claude.ai/code)は必要ないのでつけない。
 
 # ==== フォーマット ====
 {TYPE}({SCOPE}): {SUMMARY}

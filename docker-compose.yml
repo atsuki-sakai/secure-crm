@@ -1,38 +1,21 @@
-version: '3.8'
-
 services:
-  # Next.js Application
   app:
+    # Next.jsアプリケーションをコンテナで起動するサービス
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+      target: runner # Dockerfileのランタイムステージを利用
+    container_name: secure-crm-app
+    command: ["npm", "run", "dev"] # 開発モードでホットリロードを有効化
     environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-    restart: unless-stopped
-    networks:
-      - app-network
-
-  # Development mode service
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
+      - PORT=3000
       - NODE_ENV=development
-    restart: unless-stopped
-    networks:
-      - app-network
-    profiles:
-      - dev
-
-networks:
-  app-network:
-    driver: bridge
+      - CHOKIDAR_USEPOLLING=1 # Mac/Win環境でのファイル監視を安定させる
+      - NEXT_TELEMETRY_DISABLED=1 # テレメトリを無効化
+    ports:
+      - "3000:3000" # ホストとコンテナのポートを一致させる
+    volumes:
+      - .:/app # 日本語コメント: ホストのソースをコンテナにマウント
+      - /app/node_modules # コンテナ側の node_modules を保持
+    working_dir: /app
+    tty: true # 日本語コメント: 開発時のインタラクティブ入力を許可
+    stdin_open: true

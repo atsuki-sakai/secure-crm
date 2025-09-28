@@ -1,169 +1,169 @@
 # Secure CRM
 
-A modern, secure Customer Relationship Management (CRM) application built with Next.js 15, React 19, and TypeScript.
+Next.js 15、React 19、TypeScriptで構築されたモダンで安全な顧客関係管理(CRM)アプリケーションです。
 
-## 🚀 Tech Stack
+## 🚀 技術スタック
 
-- **Next.js 15.5.4** with App Router and Turbopack
-- **React 19.1.0** with TypeScript
-- **Tailwind CSS v4** with PostCSS integration
-- **Shadcn UI** components (New York style)
-- **Radix UI** primitives for accessibility
-- **Supabase** for authentication and database
-- **Lucide React** for icons
-- **Zod** for schema validation
-- **Vitest** for testing
+- **Next.js 15.5.4** App Router & Turbopack対応
+- **React 19.1.0** TypeScript対応
+- **Tailwind CSS v4** PostCSS統合
+- **Shadcn UI** コンポーネント (New Yorkスタイル)
+- **Radix UI** アクセシビリティ対応プリミティブ
+- **Supabase** 認証・データベース
+- **Lucide React** アイコンライブラリ
+- **Zod** スキーマ検証
+- **Vitest** テストフレームワーク
 
-## 📁 Project Structure
+## 📁 プロジェクト構成
 
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── (auth)/            # Authentication routes
-│   ├── (dashboard)/       # Dashboard routes
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Home page
-│   └── globals.css        # Global styles
+│   ├── (auth)/            # 認証ルート
+│   ├── (dashboard)/       # ダッシュボードルート
+│   ├── layout.tsx         # ルートレイアウト
+│   ├── page.tsx           # ホームページ
+│   └── globals.css        # グローバルスタイル
 ├── components/
-│   └── ui/                # Shadcn UI components
+│   └── ui/                # Shadcn UIコンポーネント
 └── lib/
-    └── utils.ts           # Utility functions
+    └── utils.ts           # ユーティリティ関数
 ```
 
-## 🛠 Development Setup
+## 🛠 開発環境セットアップ
 
-### Prerequisites
+### 必要な環境
 
 - Node.js 18+
-- npm or yarn
-- Docker (optional, for containerized development)
+- npm または yarn
+- Docker (オプション、コンテナ開発用)
 
-### Local Development
+### ローカル開発
 
-1. Clone the repository:
+1. リポジトリをクローン:
 ```bash
 git clone <repository-url>
 cd secure-crm
 ```
 
-2. Install dependencies:
+2. 依存関係をインストール:
 ```bash
 npm install
 ```
 
-3. Start the development server with Turbopack:
+3. Turbopack対応開発サーバーを起動:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. ブラウザで [http://localhost:3000](http://localhost:3000) を開く
 
-### Available Scripts
+### 利用可能なスクリプト
 
 ```bash
-# Development server with Turbopack
+# Turbopack対応開発サーバー
 npm run dev
 
-# Production build
+# 本番ビルド
 npm run build
 
-# Start production server
+# 本番サーバー起動
 npm start
 
-# Run linting
+# リント実行
 npm run lint
 
-# Run tests
+# テスト実行
 npm run test
 ```
 
-## 🐳 Docker Setup
+## 🐳 Docker環境での起動
 
-### Development with Docker
+### Docker開発環境
 
-Run the application in development mode using Docker:
+Dockerを使用して開発モードでアプリケーションを実行:
 
 ```bash
-# Build and start the development container
+# 開発コンテナをビルドして起動
 docker-compose up --build
 
-# Run in detached mode
+# デタッチモードで実行
 docker-compose up -d
 
-# Stop the containers
+# コンテナを停止
 docker-compose down
 ```
 
-### Production Docker
+### Docker本番環境
 
-Build and run the production container:
+本番用コンテナをビルドして実行:
 
 ```bash
-# Build the production image
+# 本番イメージをビルド
 docker build -t secure-crm .
 
-# Run the production container
+# 本番コンテナを実行
 docker run -p 3000:3000 secure-crm
 ```
 
-Or use docker-compose for production:
+docker-composeを使用した本番環境:
 
 ```bash
-# Start production environment
+# 本番環境を起動
 docker-compose -f docker-compose.yml up --build
 
-# Stop production environment
+# 本番環境を停止
 docker-compose down
 ```
 
-The application will be available at [http://localhost:3000](http://localhost:3000).
+アプリケーションは [http://localhost:3000](http://localhost:3000) でアクセス可能です。
 
-## 🎨 UI Components
+## 🎨 UIコンポーネント
 
-This project uses Shadcn UI components with the "New York" style variant. Components are built on top of Radix UI primitives for accessibility.
+このプロジェクトはShadcn UIコンポーネントの「New York」スタイルバリアントを使用しています。コンポーネントはアクセシビリティ対応のRadix UIプリミティブ上に構築されています。
 
-### Adding New Components
+### 新しいコンポーネントの追加
 
 ```bash
-# Add a new Shadcn component
+# 新しいShadcnコンポーネントを追加
 npx shadcn@latest add [component-name]
 ```
 
-Components follow the established patterns:
-- Use the `cn()` utility for conditional styling
-- Variants defined with `class-variance-authority`
-- Import paths use `@/` aliases
+コンポーネントは確立されたパターンに従います:
+- 条件付きスタイリングには `cn()` ユーティリティを使用
+- `class-variance-authority` でバリアント定義
+- `@/` エイリアスを使用したインポートパス
 
-## 🔒 Features
+## 🔒 機能
 
-- **Authentication**: Secure user authentication with Supabase
-- **Dashboard**: Modern dashboard interface
-- **Responsive Design**: Mobile-first responsive design
-- **Type Safety**: Full TypeScript coverage
-- **Accessibility**: WCAG compliant components
-- **Modern UI**: Clean, professional interface with Shadcn UI
+- **認証**: Supabaseによる安全なユーザー認証
+- **ダッシュボード**: モダンなダッシュボードインターフェース
+- **レスポンシブデザイン**: モバイルファーストのレスポンシブ設計
+- **型安全性**: 完全なTypeScriptカバレッジ
+- **アクセシビリティ**: WCAG準拠コンポーネント
+- **モダンUI**: Shadcn UIによるクリーンでプロフェッショナルなインターフェース
 
-## 🚀 Deployment
+## 🚀 デプロイ
 
-### Vercel (Recommended)
+### Vercel (推奨)
 
-The easiest way to deploy is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+最も簡単なデプロイ方法は [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) を使用することです。
 
-### Docker Deployment
+### Dockerデプロイ
 
-Deploy using the production Docker image:
+本番用Dockerイメージを使用してデプロイ:
 
 ```bash
-# Build for production
+# 本番用ビルド
 docker build -t secure-crm .
 
-# Deploy to your container platform
+# コンテナプラットフォームにデプロイ
 docker run -p 3000:3000 secure-crm
 ```
 
-## 📚 Learn More
+## 📚 学習リソース
 
-- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
-- [Shadcn UI](https://ui.shadcn.com/) - Re-usable components built using Radix UI and Tailwind CSS
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Supabase](https://supabase.com/) - Open source Firebase alternative
+- [Next.js ドキュメント](https://nextjs.org/docs) - Next.jsの機能とAPIについて学ぶ
+- [Shadcn UI](https://ui.shadcn.com/) - Radix UIとTailwind CSSで構築された再利用可能なコンポーネント
+- [Tailwind CSS](https://tailwindcss.com/) - ユーティリティファーストCSSフレームワーク
+- [Supabase](https://supabase.com/) - オープンソースのFirebase代替
